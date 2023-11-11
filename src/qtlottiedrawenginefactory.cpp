@@ -58,7 +58,7 @@ QtLottieDrawEngine *QtLottieDrawEngineFactory::create(const char *name)
 
 QtLottieDrawEngine *QtLottieDrawEngineFactory::create()
 {
-    const QString preferred = qEnvironmentVariable(kPreferredEngine, QStringLiteral("skottie"));
+    const QString preferred = qEnvironmentVariable(kPreferredEngine, QStringLiteral("rlottie"));
     if (const auto engine = create(qUtf8Printable(preferred))) {
         if (engine->available()) {
             return engine;
