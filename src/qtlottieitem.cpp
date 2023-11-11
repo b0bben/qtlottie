@@ -172,12 +172,12 @@ QSizeF QtLottieItem::sourceSize() const
     return available() ? m_drawEngine->size() : QSizeF{qreal(50), qreal(50)};
 }
 
-qint64 QtLottieItem::loops() const
+int QtLottieItem::loops() const
 {
     return available() ? m_drawEngine->loops() : 0;
 }
 
-void QtLottieItem::setLoops(const qint64 value)
+void QtLottieItem::setLoops(const int value)
 {
     if (available()) {
         m_drawEngine->setLoops(value);

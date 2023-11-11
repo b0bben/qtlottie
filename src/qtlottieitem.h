@@ -42,7 +42,7 @@ class QTLOTTIE_API QtLottieItem : public QQuickPaintedItem
     Q_PROPERTY(qint64 frameRate READ frameRate NOTIFY frameRateChanged FINAL)
     Q_PROPERTY(qint64 duration READ duration NOTIFY durationChanged FINAL)
     Q_PROPERTY(QSizeF sourceSize READ sourceSize NOTIFY sourceSizeChanged FINAL)
-    Q_PROPERTY(qint64 loops READ loops WRITE setLoops NOTIFY loopsChanged FINAL)
+    Q_PROPERTY(int loops READ loops WRITE setLoops NOTIFY loopsChanged FINAL)
     Q_PROPERTY(bool available READ available CONSTANT FINAL)
     Q_PROPERTY(qreal devicePixelRatio READ devicePixelRatio WRITE setDevicePixelRatio NOTIFY devicePixelRatioChanged FINAL)
 
@@ -63,8 +63,8 @@ public:
 
     QSizeF sourceSize() const;
 
-    qint64 loops() const;
-    void setLoops(const qint64 value);
+    int loops() const;
+    void setLoops(const int value);
 
     bool available() const;
 
