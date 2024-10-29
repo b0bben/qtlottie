@@ -7,9 +7,6 @@ set(CMAKE_AUTORCC ON)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Gui)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Gui)
 
-find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets)
-find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets)
-
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Quick)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Quick)
 
@@ -29,11 +26,6 @@ set(SOURCES
     qtlottiedrawengine_skottie.cpp
     qtlottiedrawengine_rlottie.cpp
 )
-
-if(TARGET Qt${QT_VERSION_MAJOR}::Widgets)
-    list(APPEND PUBLIC_HEADERS qtlottiewidget.h)
-    list(APPEND SOURCES qtlottiewidget.cpp)
-endif()
 
 if(TARGET Qt${QT_VERSION_MAJOR}::Quick)
     list(APPEND PUBLIC_HEADERS qtlottieitem.h)
@@ -77,12 +69,6 @@ target_compile_definitions(${PROJECT_NAME} PRIVATE
 target_link_libraries(${PROJECT_NAME} PRIVATE
     Qt${QT_VERSION_MAJOR}::Gui
 )
-
-if(TARGET Qt${QT_VERSION_MAJOR}::Widgets)
-    target_link_libraries(${PROJECT_NAME} PRIVATE
-        Qt${QT_VERSION_MAJOR}::Widgets
-    )
-endif()
 
 if(TARGET Qt${QT_VERSION_MAJOR}::Quick)
     target_link_libraries(${PROJECT_NAME} PRIVATE
